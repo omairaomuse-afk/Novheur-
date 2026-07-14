@@ -36,3 +36,5 @@
   document.querySelectorAll('.grid .card').forEach((card, i)=>{
     card.style.transitionDelay = (i*0.08)+'s';
   });
+    card.style.transitionDelay = (i*0.08)+'s';
+  });
