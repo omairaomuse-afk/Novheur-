@@ -1,4 +1,4 @@
-// set --header-h so hero fills exactly the remaining viewport
+  // set --header-h so hero fills exactly the remaining viewport
   function setHeaderHeight(){
     const h = document.getElementById('siteHeader').offsetHeight;
     document.documentElement.style.setProperty('--header-h', h+'px');
@@ -34,7 +34,5 @@
 
   // stagger the shop cards slightly
   document.querySelectorAll('.grid .card').forEach((card, i)=>{
-    card.style.transitionDelay = (i*0.08)+'s';
-  });
     card.style.transitionDelay = (i*0.08)+'s';
   });
