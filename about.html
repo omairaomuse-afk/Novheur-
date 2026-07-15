@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — NOVHEUR</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-row">
+      <button class="nav-icon-btn menu-toggle-btn" aria-label="Open Menu">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round"/></svg>
+      </button>
+      <a href="index.html" class="nav-logo">NOVHEUR</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="new-arrivals.html">New Arrivals</a></li>
+        <li><a href="about.html" style="color: var(--btn);">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-side">
+        <button class="nav-icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU DRAWER -->
+  <div class="mobile-menu-overlay"></div>
+  <aside class="mobile-menu">
+    <div class="mobile-menu-top">
+      <span class="nav-logo" style="font-size:1.2rem;">NOVHEUR</span>
+      <button class="mobile-menu-close">
+        <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="new-arrivals.html">New Arrivals</a></li>
+      <li><a href="about.html" style="color: var(--btn);">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-foot">Worldwide Shipping</div>
+  </aside>
+
+  <!-- BRAND HERITAGE SECTION -->
+  <section class="section-container" style="padding-top: 6rem;">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center;" id="about-grid">
+      <!-- Story Content -->
+      <div>
+        <span class="section-eyebrow">Our Story</span>
+        <h1 class="section-title" style="font-size:3rem; margin-bottom: 2rem;">The Philosophy Behind NOVHEUR</h1>
+        <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.8; margin-bottom: 1.5rem;">
+          Founded with a clear desire to merge timeless classical silhouettes with highly deliberate, warm contemporary color scales, NOVHEUR operates at the intersection of ease and elegance. 
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.8; margin-bottom: 2rem;">
+          Our designs focus on tailored shapes, luxurious natural fabric blends, and minimalist structural details. Based beautifully out of Nairobi with nationwide delivery and express global shipping, NOVHEUR brings clean editorial designs directly to you.
+        </p>
+        <blockquote style="border-left: 2px solid var(--btn); padding-left: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: var(--heading); margin-bottom: 2rem;">
+          "Designing wardrobe cornerstones that emphasize grace, symmetry, and neutral luxury."
+        </blockquote>
+      </div>
+
+      <!-- Editorial Image Frame -->
+      <div style="aspect-ratio: 3/4; border: 1px solid var(--border-light); padding: 1rem; background: var(--card);">
+        <img src="https://images.unsplash.com/photo-1534126511673-b6899657816a?q=80&w=800" alt="Our Atelier" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND VALUES -->
+  <section class="section-container" style="padding-top: 0; padding-bottom: 6rem;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem;">
+      <div>
+        <h3 style="font-family: 'Cormorant Garamond'; font-size: 1.6rem; color: var(--heading); margin-bottom: 1rem;">Curated Sourcing</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">We handpick textile runs with beautiful tactile texture, curated particularly within our warm terracotta, rich cream, and espresso color matrix.</p>
+      </div>
+      <div>
+        <h3 style="font-family: 'Cormorant Garamond'; font-size: 1.6rem; color: var(--heading); margin-bottom: 1rem;">Nairobi Roots</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">Delivering within the Nairobi radius on the same day, we balance local speed with global standards of product packaging and finishing.</p>
+      </div>
+      <div>
+        <h3 style="font-family: 'Cormorant Garamond'; font-size: 1.6rem; color: var(--heading); margin-bottom: 1rem;">Conscious Production</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">We create our pieces in tightly controlled, small editions to avoid wasteful surplus, keeping each release deeply personal and unique.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">NOVHEUR</div>
+    <div class="footer-tag">Timeless Modern Luxury</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="new-arrivals.html">New Arrivals</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">WhatsApp</a>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 NOVHEUR. Crafted for the Modern Minimalist.
+    </div>
+  </footer>
+
+  <script>
+    const toggleBtn = document.querySelector('.menu-toggle-btn');
+    const closeBtn = document.querySelector('.mobile-menu-close');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const menu = document.querySelector('.mobile-menu');
+
+    [toggleBtn, closeBtn, overlay].forEach(btn => {
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        overlay.classList.toggle('open');
+      });
+    });
+
+    // Custom CSS Grid responsive adjustment for larger devices
+    if(window.innerWidth > 900) {
+       document.getElementById('about-grid').style.gridTemplateColumns = '1.1fr 0.9fr';
+    }
+  </script>
+</body>
+</html>
