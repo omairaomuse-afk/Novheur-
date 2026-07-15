@@ -11,134 +11,245 @@
 </head>
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header class="site-header" id="siteHeader">
-    <div class="nav-row">
-      <button class="nav-icon-btn menu-toggle-btn" id="menuOpenBtn" aria-label="Open menu">
-        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-      <a href="index.html" class="nav-logo">NOVHEUR</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="new-arrivals.html">New Arrivals</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="nav-side">
-        <button class="nav-icon-btn cart-btn" id="cartBtn" aria-label="Cart">
-          <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
 
-  <!-- ================= MOBILE MENU ================= -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-top">
-      <div class="nav-logo">NOVHEUR</div>
-      <button class="mobile-menu-close" id="menuCloseBtn" aria-label="Close menu">
-        <svg viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
-      </button>
-    </div>
-    <ul class="mobile-menu-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="new-arrivals.html">New Arrivals</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="mobile-menu-foot">Free Shipping · New Arrivals Weekly</div>
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <!-- Keep your existing header -->
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero-small">
+
+  <div class="hero-image">
+      <img src="images/hero.jpg" alt="">
   </div>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">NOVHEUR</p>
-      <h1 class="hero-title">The Weekend<br>Starts Here.</h1>
-      <p class="hero-sub">Curated looks for brunch dates, girls' nights, rooftop parties, and unforgettable moments.</p>
-      <a href="shop.html" class="btn">Explore the Weekend</a>
-    </div>
-    <div class="hero-scroll"></div>
-  </section>
+  <div class="hero-content">
 
-  <!-- ================= BREATHE ================= -->
-  <section class="breathe reveal">
-    <div class="breathe-mark">— Est. for the nights you remember</div>
-    <h2 class="breathe-statement">Some outfits get you there. Ours get you remembered.</h2>
-  </section>
+      <p class="hero-eyebrow">
+          NEW COLLECTION
+      </p>
 
-  <!-- ================= MARQUEE (signature) ================= -->
-  <div class="marquee-wrap reveal">
-    <div class="marquee-track" id="marqueeTrack">
-      <span>Brunch Dates</span><span>Girls' Nights</span><span>Rooftop Parties</span><span>Unforgettable Moments</span>
-      <span>Brunch Dates</span><span>Girls' Nights</span><span>Rooftop Parties</span><span>Unforgettable Moments</span>
-    </div>
+      <h1>
+          Weekend Collection
+      </h1>
+
+      <p>
+          Fresh arrivals for brunch dates, rooftop parties and nights out.
+      </p>
+
+      <a href="shop.html" class="btn">
+          Shop New In
+      </a>
+
   </div>
 
-  <!-- ================= SHOP ================= -->
-  <section class="shop">
-    <div class="shop-head reveal">
-      <div class="shop-eyebrow">Shop the Edit</div>
-      <h2 class="shop-title">This Weekend's Edit</h2>
-    </div>
-    <div class="grid">
+</section>
 
-      <div class="card reveal">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1487222476894-8944d8237e19?q=80&w=800&auto=format&fit=crop" alt="Brunch dress">
-          <span class="card-tag">Brunch</span>
-        </div>
-        <div class="card-body">
-          <div class="card-name">The Linen Wrap Dress</div>
-          <div class="card-occasion">Brunch Dates</div>
-          <div class="card-price">KES 3,499</div>
-        </div>
-      </div>
+<!-- ================= CATEGORIES ================= -->
 
-      <div class="card reveal">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1496217590455-aa63a8350eea?q=80&w=800&auto=format&fit=crop" alt="Night out set">
-          <span class="card-tag">Girls' Night</span>
-        </div>
-        <div class="card-body">
-          <div class="card-name">Satin Slip Set</div>
-          <div class="card-occasion">Girls' Nights</div>
-          <div class="card-price">KES 4,250</div>
-        </div>
-      </div>
+<section class="categories">
 
-      <div class="card reveal">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop" alt="Rooftop outfit">
-          <span class="card-tag">Rooftop</span>
-        </div>
-        <div class="card-body">
-          <div class="card-name">Gold Hour Halter</div>
-          <div class="card-occasion">Rooftop Parties</div>
-          <div class="card-price">KES 3,899</div>
-        </div>
-      </div>
+<h2>Shop Categories</h2>
 
-      <div class="card reveal">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop" alt="Statement look">
-          <span class="card-tag">After Dark</span>
-        </div>
-        <div class="card-body">
-          <div class="card-name">The Statement Blazer</div>
-          <div class="card-occasion">Unforgettable Moments</div>
-          <div class="card-price">KES 4,950</div>
-        </div>
-      </div>
+<div class="category-grid">
 
-    </div>
-    <div class="shop-cta reveal">
-      <a href="shop.html" class="btn">View Full Collection</a>
-    </div>
-  </section>
+<a href="#">
+<img src="images/dresses.jpg">
+<span>Dresses</span>
+</a>
+
+<a href="#">
+<img src="images/sets.jpg">
+<span>Matching Sets</span>
+</a>
+
+<a href="#">
+<img src="images/tops.jpg">
+<span>Tops</span>
+</a>
+
+<a href="#">
+<img src="images/bottoms.jpg">
+<span>Bottoms</span>
+</a>
+
+</div>
+
+</section>
+
+<!-- ================= NEW ARRIVALS ================= -->
+
+<section class="products">
+
+<div class="section-head">
+
+<p>JUST DROPPED</p>
+
+<h2>New This Week</h2>
+
+</div>
+
+<div class="grid">
+
+<!-- Product Card -->
+
+<div class="card">
+
+<div class="card-media">
+
+<img src="images/product1.jpg">
+
+</div>
+
+<div class="card-body">
+
+<div class="card-name">
+Satin Mini Dress
+</div>
+
+<div class="card-price">
+KES 3,950
+</div>
+
+</div>
+
+</div>
+
+<!-- Repeat 7 more -->
+
+</div>
+
+</section>
+
+<!-- ================= CAMPAIGN ================= -->
+
+<section class="campaign">
+
+<img src="images/campaign.jpg">
+
+<div class="campaign-content">
+
+<p>SUMMER NIGHTS</p>
+
+<h2>
+Made For Weekend Plans
+</h2>
+
+<a class="btn">
+Shop Collection
+</a>
+
+</div>
+
+</section>
+
+<!-- ================= TRENDING ================= -->
+
+<section class="categories">
+
+<h2>Trending Right Now</h2>
+
+<div class="category-grid">
+
+<a href="#">
+<img src="images/date.jpg">
+<span>Date Night</span>
+</a>
+
+<a href="#">
+<img src="images/vacation.jpg">
+<span>Vacation</span>
+</a>
+
+<a href="#">
+<img src="images/girlsnight.jpg">
+<span>Girls Night</span>
+</a>
+
+<a href="#">
+<img src="images/brunch.jpg">
+<span>Brunch</span>
+</a>
+
+</div>
+
+</section>
+
+<!-- ================= BEST SELLERS ================= -->
+
+<section class="products">
+
+<div class="section-head">
+
+<p>BEST SELLERS</p>
+
+<h2>Everyone's Favourite</h2>
+
+</div>
+
+<div class="grid">
+
+<!-- Products -->
+
+</div>
+
+</section>
+
+<!-- ================= INSTAGRAM ================= -->
+
+<section class="instagram">
+
+<h2>@NOVHEUR</h2>
+
+<div class="instagram-grid">
+
+<img src="images/ig1.jpg">
+
+<img src="images/ig2.jpg">
+
+<img src="images/ig3.jpg">
+
+<img src="images/ig4.jpg">
+
+<img src="images/ig5.jpg">
+
+<img src="images/ig6.jpg">
+
+</div>
+
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+<h2>
+Join the Club
+</h2>
+
+<p>
+Get first access to every new drop and exclusive offers.
+</p>
+
+<form>
+
+<input
+type="email"
+placeholder="Email Address">
+
+<button class="btn">
+
+Join Now
+
+</button>
+
+</form>
+
+</section>
+
+
+
 
   <!-- ================= FOOTER ================= -->
   <footer>
