@@ -1,13 +1,1105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOVHEUR — The Weekend Starts Here</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<!-- Link your CSS file here, or embed the brand CSS styles below -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVHEUR — The Weekend Starts Here</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================= VARIABLES & GLOBAL STYLES ================= */
+    :root {
+      /* --- NOVHEUR Brand Palette --- */
+      --bg: #f6f4f3;                 /* Main canvas: Warm, luxurious linen background */
+      --btn: #b68f8a;                /* Signature brand color: The elegant rose/mauve */
+      --btn-hover: #60362a;          /* Interaction state: Rich warm chocolate */
+      
+      /* --- Typography & Structural Tones --- */
+      --heading: #4d2922;            /* Deep espresso brown for classic serif headers */
+      --body: #191b1f;               /* High-fashion primary charcoal/black for readability */
+      --text-muted: #585352;         /* Editorial secondary text: Warm slate gray */
+      
+      /* --- Surfaces & Layout Accents --- */
+      --card: #ffffff;               /* Crisp white surfaces for product frames */
+      --footer: #3e2f2a;             /* Deepest grounding brown for the footer block */
+      --accent-dark: #2f2f32;        /* Dark structural elements */
+      
+      /* --- Borders & Spacing --- */
+      --border-light: rgba(186, 173, 172, 0.3); /* Ultra-soft gray divider using #baadac */
+      --line: rgba(77, 41, 34, 0.08);           /* Faint structural lines */
+    }
+
+    /* ================= ANNOUNCEMENT BAR ================= */
+    .announcement-bar {
+      background-color: #121212; /* Sleek near-black */
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 8px 0;
+      overflow: hidden;
+      position: relative;
+      white-space: nowrap;
+      width: 100%;
+      z-index: 70;
+    }
+
+    .announcement-track {
+      display: inline-block;
+      padding-left: 100%;
+      animation: announcementMarquee 35s linear infinite;
+    }
+
+    .announcement-track span {
+      display: inline-block;
+      padding-right: 2.5rem;
+    }
+
+    /* Seamless Announcement Loop */
+    @keyframes announcementMarquee {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-100%, 0, 0);
+      }
+    }
+
+    /* ================= CORE STYLES ================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--heading);
+      letter-spacing: 0.04em;
+      font-weight: 500;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ---------- scroll reveals ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 1s cubic-bezier(.21, .6, .35, 1), transform 1s cubic-bezier(.21, .6, .35, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ================= BUTTONS (REFINE & ELEVATE) ================= */
+    .btn {
+      display: inline-block;
+      background: var(--btn);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 1.15rem 2.8rem;
+      border: none;
+      border-radius: 1px;
+      cursor: pointer;
+      transition: background 0.4s cubic-bezier(.21, .6, .35, 1), transform 0.2s ease, box-shadow 0.4s ease;
+    }
+
+    .btn:hover {
+      background: var(--btn-hover);
+      box-shadow: 0 8px 20px rgba(96, 54, 42, 0.12);
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--heading);
+      border: 1px solid var(--heading);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border-radius: 1px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(.21, .6, .35, 1);
+    }
+
+    .btn-secondary:hover {
+      background: var(--heading);
+      color: #fff;
+    }
+
+    .btn-secondary:active {
+      transform: scale(0.97);
+    }
+
+    /* ================= SITE HEADER ================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.5rem;
+      max-width: 1340px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--heading);
+    }
+
+    .nav-icon-btn {
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      color: var(--heading);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease, color 0.3s ease;
+    }
+
+    .nav-icon-btn:hover {
+      color: var(--btn);
+    }
+
+    .nav-icon-btn:active {
+      transform: scale(0.9);
+    }
+
+    .nav-icon-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.3;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 2.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--body);
+      padding-bottom: 6px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 1px;
+      background: var(--btn);
+      transition: width 0.35s cubic-bezier(.21, .6, .35, 1);
+    }
+
+    .nav-links a:hover {
+      color: var(--btn);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-side {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .menu-toggle-btn {
+      display: flex;
+    }
+
+    @media (min-width: 900px) {
+      .nav-links { display: flex; }
+      .menu-toggle-btn { display: none; }
+      .nav-row { padding: 1.4rem 3rem; }
+    }
+
+    /* ---- mobile menu panel ---- */
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: rgba(25, 27, 31, 0.3);
+      backdrop-filter: blur(2px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .mobile-menu-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 85%;
+      max-width: 360px;
+      z-index: 100;
+      background: var(--bg);
+      padding: 1.5rem 2rem;
+      transform: translateX(-100%);
+      transition: transform 0.5s cubic-bezier(.21, .6, .35, 1);
+      overflow-y: auto;
+      box-shadow: 10px 0 30px rgba(0, 0, 0, 0.03);
+      border-right: 1px solid var(--border-light);
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .mobile-menu-close {
+      background: none;
+      border: none;
+      color: var(--heading);
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-close svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    .mobile-menu-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .mobile-menu-links a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--heading);
+      display: inline-block;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .mobile-menu-links a:active, .mobile-menu-links a:hover {
+      transform: translateX(8px);
+      color: var(--btn);
+    }
+
+    .mobile-menu-foot {
+      margin-top: 4rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      opacity: 0.8;
+    }
+
+    @media (min-width: 900px) {
+      .mobile-menu { display: none; }
+    }
+
+    /* ================= NOVHEUR HERO (SHRUNK EDITORIAL STYLE) ================= */
+    .hero-shrunk {
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: 440px;
+      height: 50vh;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .hero-content-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3.5rem 2rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--btn);
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .hero-title-shrunk {
+      font-size: 2.6rem;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      max-width: 15ch;
+      text-transform: uppercase;
+    }
+
+    .hero-subtitle-shrunk {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 42ch;
+      margin-bottom: 2rem;
+    }
+
+    .hero-image-right {
+      display: none;
+      background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+
+    @media (min-width: 768px) {
+      .hero-shrunk {
+        grid-template-columns: 1.1fr 0.9fr;
+        height: 48vh;
+      }
+      .hero-content-left {
+        padding: 3rem 10% 3rem 12%;
+      }
+      .hero-image-right {
+        display: block;
+      }
+    }
+
+    /* ================= HORIZONTAL CATEGORIES BAR ================= */
+    .categories-container {
+      padding: 2.5rem 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+      background: var(--card);
+    }
+
+    .categories-grid {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: none;
+    }
+
+    .categories-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-tile {
+      flex: 0 0 140px;
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .category-tile img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(.21, .6, .35, 1);
+    }
+
+    .category-tile:hover img {
+      transform: scale(1.08);
+    }
+
+    .category-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(62,47,42,0.8) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .category-name {
+      color: #ffffff;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    @media (min-width: 900px) {
+      .categories-container { padding: 3.5rem 3rem; }
+      .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 1.2rem;
+        overflow-x: visible;
+      }
+      .category-tile { flex: none; width: 100%; }
+    }
+
+    /* ================= PRODUCTS GRID (CLEAN EDITORIAL FRAMES) ================= */
+    .section-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem 5rem;
+    }
+
+    @media (min-width: 900px) {
+      .section-container { padding: 7rem 3rem 6rem; }
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--btn);
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--heading);
+      text-transform: uppercase;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+    }
+
+    @media (min-width: 768px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    }
+
+    @media (min-width: 1100px) {
+      .products-grid { grid-template-columns: repeat(4, 1fr); gap: 2.2rem; }
+    }
+
+    /* Product Cards */
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .product-media {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: #e9e4e1;
+    }
+
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(.21, .6, .35, 1);
+    }
+
+    .product-card:hover {
+      box-shadow: 0 12px 30px rgba(77, 41, 34, 0.04);
+    }
+
+    .product-card:hover .product-media img {
+      transform: scale(1.05);
+    }
+
+    /* Wishlist Button */
+    .wishlist-btn {
+      position: absolute;
+      top: 0.85rem;
+      right: 0.85rem;
+      z-index: 5;
+      background: rgba(255, 255, 255, 0.95);
+      border: none;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      color: var(--heading);
+      transition: all 0.3s ease;
+    }
+
+    .wishlist-btn:hover {
+      background: var(--card);
+      color: var(--btn);
+    }
+
+    .wishlist-btn svg {
+      width: 15px;
+      height: 15px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      transition: all 0.3s ease;
+    }
+
+    .wishlist-btn.active svg {
+      fill: var(--btn);
+      stroke: var(--btn);
+    }
+
+    /* Hover Action Tray */
+    .product-actions {
+      position: absolute;
+      bottom: -48px;
+      left: 0;
+      right: 0;
+      display: flex;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(4px);
+      z-index: 5;
+      transition: bottom 0.35s cubic-bezier(.21, .6, .35, 1);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .product-card:hover .product-actions {
+      bottom: 0;
+    }
+
+    .action-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 0.9rem 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--heading);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .action-btn:first-child {
+      border-right: 1px solid var(--border-light);
+    }
+
+    .action-btn:hover {
+      background: var(--btn);
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .product-actions {
+        position: relative;
+        bottom: 0;
+        background: var(--card);
+        border-top: 1px solid var(--border-light);
+      }
+      .product-card:hover .product-actions { bottom: 0; }
+      .action-btn.quick-view { display: none; }
+    }
+
+    .product-info {
+      padding: 1.2rem 1rem 1.4rem;
+      text-align: left;
+    }
+
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--heading);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-price {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--body);
+    }
+
+    .center-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    /* ================= LIFESTYLE COVER BANNER ================= */
+    .campaign-banner {
+      position: relative;
+      height: 45vh;
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    .campaign-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+    }
+
+    .campaign-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(62, 47, 42, 0.45); /* Soft premium tint utilizing your footer brown */
+      z-index: 2;
+    }
+
+    .campaign-content {
+      position: relative;
+      z-index: 3;
+      padding: 0 1.5rem;
+    }
+
+    .campaign-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .campaign-content .btn-secondary {
+      background: #ffffff;
+      color: var(--heading);
+      border: 1px solid #ffffff;
+    }
+
+    .campaign-content .btn-secondary:hover {
+      background: var(--btn-hover);
+      color: #ffffff;
+      border-color: var(--btn-hover);
+    }
+
+    @media (min-width: 768px) {
+      .campaign-banner { height: 50vh; }
+      .campaign-content h2 { font-size: 3.8rem; }
+    }
+
+    /* ================= TRENDING GRID ================= */
+    .trending-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.4rem;
+    }
+
+    @media (min-width: 600px) {
+      .trending-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1100px) {
+      .trending-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .trending-card {
+      position: relative;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+    }
+
+    .trending-card img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(.21, .6, .35, 1);
+    }
+
+    .trending-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .trending-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(96, 54, 42, 0.22); /* Soft brand warmth overlay */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.4s ease;
+    }
+
+    .trending-card:hover .trending-overlay {
+      background: rgba(96, 54, 42, 0.45);
+    }
+
+    .trending-title {
+      color: #ffffff;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ================= INSTAGRAM SECTION ================= */
+    .instagram-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .instagram-handle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--heading);
+    }
+
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    @media (min-width: 900px) {
+      .instagram-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .instagram-post {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      position: relative;
+      background: #e9e4e1;
+    }
+
+    .instagram-post img {
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.4s ease;
+    }
+
+    .instagram-post:hover img {
+      opacity: 0.85;
+    }
+
+    /* ================= NEWSLETTER ================= */
+    .newsletter-section {
+      background: var(--card);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 6rem 1.5rem;
+      text-align: center;
+    }
+
+    .newsletter-inner {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-title {
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--heading);
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .newsletter-desc {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 2.4rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .newsletter-input {
+      border: 1px solid var(--border-light);
+      background: var(--bg);
+      padding: 1.15rem 1.4rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      color: var(--body);
+      border-radius: 1px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .newsletter-input:focus {
+      border-color: var(--btn);
+    }
+
+    @media (min-width: 600px) {
+      .newsletter-form {
+        flex-direction: row;
+        gap: 0;
+      }
+      .newsletter-input {
+        flex: 1;
+        border-right: none;
+        border-radius: 1px 0 0 1px;
+      }
+      .newsletter-form .btn {
+        border-radius: 0 1px 1px 0;
+      }
+    }
+
+    /* ================= MARQUEE ACCENT ================= */
+    .marquee-wrap {
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 1.5rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+      background: var(--bg);
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      animation: marquee 24s linear infinite;
+    }
+
+    .marquee-track span {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--heading);
+      padding: 0 1.6rem;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .marquee-track span::after {
+      content: '✦';
+      color: var(--btn);
+      font-size: 0.55rem;
+      margin-left: 1.6rem;
+    }
+
+    @keyframes marquee {
+      from { transform: translate3d(0, 0, 0); }
+      to { transform: translate3d(-50%, 0, 0); }
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: var(--footer);
+      color: #f6f4f3;
+      padding: 5rem 1.5rem 2.5rem;
+    }
+
+    .footer-logo {
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #f6f4f3;
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-tag {
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-bottom: 3rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      color: #baadac; /* Soft brand gray */
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2.2rem;
+      flex-wrap: wrap;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    .footer-links a {
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s ease;
+      opacity: 0.85;
+    }
+
+    .footer-links a:hover {
+      color: var(--btn);
+      opacity: 1;
+    }
+
+    .footer-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 1px;
+      background: var(--btn);
+      transition: width 0.35s ease;
+    }
+
+    .footer-links a:hover::after {
+      width: 100%;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-social a {
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s ease, opacity 0.3s ease;
+      opacity: 0.75;
+    }
+
+    .footer-social a:hover {
+      opacity: 1;
+      color: var(--btn);
+    }
+
+    .footer-social a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 1px;
+      background: var(--btn);
+      transition: width 0.3s ease;
+    }
+
+    .footer-social a:hover::after {
+      width: 100%;
+    }
+
+    .footer-policy-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 2rem;
+      opacity: 0.55;
+    }
+
+    .footer-policy-links a {
+      transition: opacity 0.3s ease, color 0.3s ease;
+    }
+
+    .footer-policy-links a:hover {
+      opacity: 1;
+      color: var(--btn);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.68rem;
+      opacity: 0.45;
+      letter-spacing: 0.06em;
+      border-top: 1px solid rgba(186, 173, 172, 0.15);
+      padding-top: 2rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -46,7 +1138,7 @@
     </div>
   </header>
 
-  <!-- ================= MOBILE MENU ================= -->
+  <!-- ================= MOBILE MENU PANEL ================= -->
   <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-top">
@@ -65,7 +1157,7 @@
     <div class="mobile-menu-foot">Free Shipping · New Arrivals Weekly</div>
   </div>
 
-  <!-- ================= HERO ================= -->
+  <!-- ================= HERO SECTION (SHRUNK TO 45vh) ================= -->
   <section class="hero-shrunk">
     <div class="hero-content-left">
       <p class="hero-eyebrow">NOVHEUR</p>
@@ -78,7 +1170,7 @@
     <div class="hero-image-right"></div>
   </section>
 
-  <!-- ================= CATEGORIES CONTAINER ================= -->
+  <!-- ================= HORIZONTAL CATEGORIES BAR ================= -->
   <div class="categories-container">
     <div class="categories-grid">
       <a href="shop.html?cat=new" class="category-tile">
@@ -126,10 +1218,10 @@
     </div>
   </div>
 
-  <!-- ================= NEW ARRIVALS ================= -->
+  <!-- ================= NEW ARRIVALS (6 Products) ================= -->
   <section class="section-container">
     <div class="section-head">
-      <p class="section-eyebrow">Weekly Drop</p>
+      <p class="section-eyebrow">The Editorial Selection</p>
       <h2 class="section-title">New This Week</h2>
     </div>
     <div class="products-grid">
@@ -146,7 +1238,7 @@
             <button class="action-btn">Add to Cart</button>
           </div>
         </div>
-        <div class="product-body">
+        <div class="product-info">
           <h3 class="product-name">The Linen Wrap Dress</h3>
           <p class="product-price">KES 3,499</p>
         </div>
@@ -164,7 +1256,7 @@
             <button class="action-btn">Add to Cart</button>
           </div>
         </div>
-        <div class="product-body">
+        <div class="product-info">
           <h3 class="product-name">Satin Slip Set</h3>
           <p class="product-price">KES 4,250</p>
         </div>
@@ -182,7 +1274,7 @@
             <button class="action-btn">Add to Cart</button>
           </div>
         </div>
-        <div class="product-body">
+        <div class="product-info">
           <h3 class="product-name">Gold Hour Halter</h3>
           <p class="product-price">KES 3,899</p>
         </div>
@@ -200,7 +1292,7 @@
             <button class="action-btn">Add to Cart</button>
           </div>
         </div>
-        <div class="product-body">
+        <div class="product-info">
           <h3 class="product-name">Luxe Crepe Mini</h3>
           <p class="product-price">KES 3,950</p>
         </div>
@@ -218,7 +1310,7 @@
             <button class="action-btn">Add to Cart</button>
           </div>
         </div>
-        <div class="product-body">
+        <div class="product-info">
           <h3 class="product-name">Ribbed Knit Two-Piece</h3>
           <p class="product-price">KES 4,500</p>
         </div>
@@ -236,32 +1328,32 @@
             <button class="action-btn">Add to Cart</button>
           </div>
         </div>
-        <div class="product-body">
+        <div class="product-info">
           <h3 class="product-name">Sunset Pleated Dress</h3>
           <p class="product-price">KES 4,100</p>
         </div>
       </div>
 
     </div>
-    <div class="section-footer">
+    <div class="center-cta">
       <a href="new-arrivals.html" class="btn-secondary">Shop All New Arrivals</a>
     </div>
   </section>
 
-  <!-- ================= LIFESTYLE COVER BANNER ================= -->
-  <section class="lifestyle-banner">
-    <div class="lifestyle-bg"></div>
-    <div class="lifestyle-overlay"></div>
-    <div class="lifestyle-content">
+  <!-- ================= CAMPAIGN LIFESTYLE BANNER ================= -->
+  <section class="campaign-banner">
+    <div class="campaign-bg"></div>
+    <div class="campaign-overlay"></div>
+    <div class="campaign-content">
       <h2>MADE FOR BRUNCH.</h2>
-      <a href="shop.html?collection=brunch" class="btn">Shop the Vibe</a>
+      <a href="shop.html?collection=brunch" class="btn-secondary">Shop the Vibe</a>
     </div>
   </section>
 
-  <!-- ================= TRENDING CATEGORIES ================= -->
+  <!-- ================= TRENDING SECTION ================= -->
   <section class="section-container">
     <div class="section-head">
-      <p class="section-eyebrow">On Our Radar</p>
+      <p class="section-eyebrow">Our Top Collections</p>
       <h2 class="section-title">Trending Now</h2>
     </div>
     <div class="trending-grid">
@@ -300,7 +1392,7 @@
   <!-- ================= BEST SELLERS ================= -->
   <section class="section-container" style="border-top: 1px solid var(--border-light);">
     <div class="section-head">
-      <p class="section-eyebrow">Most Wanted</p>
+      <p class="section-eyebrow">The Wardrobe Staples</p>
       <h2 class="section-title">Best Sellers</h2>
     </div>
     <div class="products-grid">
@@ -317,7 +1409,7 @@
             <button class="action-btn">Add to Cart</button>
           </div>
         </div>
-        <div class="product-body">
+        <div class="product-info">
           <h3 class="product-name">The Statement Blazer</h3>
           <p class="product-price">KES 4,950</p>
         </div>
@@ -335,7 +1427,7 @@
             <button class="action-btn">Add to Cart</button>
           </div>
         </div>
-        <div class="product-body">
+        <div class="product-info">
           <h3 class="product-name">Linen Wide-Leg Trouser</h3>
           <p class="product-price">KES 3,750</p>
         </div>
@@ -353,7 +1445,7 @@
             <button class="action-btn">Add to Cart</button>
           </div>
         </div>
-        <div class="product-body">
+        <div class="product-info">
           <h3 class="product-name">Ribbed Corset Top</h3>
           <p class="product-price">KES 2,499</p>
         </div>
@@ -371,7 +1463,7 @@
             <button class="action-btn">Add to Cart</button>
           </div>
         </div>
-        <div class="product-body">
+        <div class="product-info">
           <h3 class="product-name">Backless Satin Mini</h3>
           <p class="product-price">KES 4,350</p>
         </div>
@@ -382,9 +1474,9 @@
 
   <!-- ================= INSTAGRAM FEED ================= -->
   <section class="section-container" style="padding-bottom: 5rem;">
-    <div class="section-head">
-      <p class="section-eyebrow">Follow the Vibe</p>
-      <a href="https://instagram.com/novheur" target="_blank" rel="noopener" class="section-title" style="font-size: 1.6rem; letter-spacing: 0.1em; display: block; margin-top: 0.5rem;">@NOVHEUR</a>
+    <div class="instagram-header">
+      <p class="hero-eyebrow" style="margin-bottom: 0.5rem;">Follow the Vibe</p>
+      <a href="https://instagram.com/novheur" target="_blank" rel="noopener" class="instagram-handle">@NOVHEUR</a>
     </div>
     <div class="instagram-grid">
       <div class="instagram-post">
@@ -402,18 +1494,6 @@
     </div>
   </section>
 
-  <!-- ================= MARQUEE ACCENT ================= -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span>THE WEEKEND STARTS HERE</span>
-      <span>THE WEEKEND STARTS HERE</span>
-      <span>THE WEEKEND STARTS HERE</span>
-      <span>THE WEEKEND STARTS HERE</span>
-      <span>THE WEEKEND STARTS HERE</span>
-      <span>THE WEEKEND STARTS HERE</span>
-    </div>
-  </div>
-
   <!-- ================= NEWSLETTER ================= -->
   <section class="newsletter-section">
     <div class="newsletter-inner">
@@ -425,6 +1505,21 @@
       </form>
     </div>
   </section>
+
+  <!-- ================= MARQUEE ACCENT ================= -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Slow Fashion</span>
+      <span>Designed in Nairobi</span>
+      <span>Weekly Drops</span>
+      <span>Express Shipping</span>
+      <!-- Seamless Duplicate -->
+      <span>Slow Fashion</span>
+      <span>Designed in Nairobi</span>
+      <span>Weekly Drops</span>
+      <span>Express Shipping</span>
+    </div>
+  </div>
 
   <!-- ================= FOOTER ================= -->
   <footer>
@@ -451,7 +1546,7 @@
     <div class="footer-bottom">© 2026 NOVHEUR. All rights reserved.</div>
   </footer>
 
-  <!-- Drawer Toggle Handler with CSS Mappings -->
+  <!-- Native Mobile Drawer Toggle Script -->
   <script>
     const menuOpenBtn = document.getElementById('menuOpenBtn');
     const menuCloseBtn = document.getElementById('menuCloseBtn');
