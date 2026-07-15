@@ -18,6 +18,40 @@
   --border-light: rgba(186, 173, 172, 0.3); /* Ultra-soft gray divider using #baadac */
   --line: rgba(77, 41, 34, 0.08);           /* Faint structural lines */
 }
+.announcement-bar {
+  background-color: #121212; /* Sleek near-black */
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 8px 0;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.announcement-track {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 25s linear infinite;
+}
+
+.announcement-track span {
+  display: inline-block;
+  padding-right: 2rem;
+}
+
+/* Smooth Infinite Loop */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0); /* Perfect loop midpoint */
+  }
+}
 
 /* ================= CORE STYLES ================= */
 * {
