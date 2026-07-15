@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All — NOVHEUR</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-row">
+      <button class="nav-icon-btn menu-toggle-btn" aria-label="Open Menu">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round"/></svg>
+      </button>
+      <a href="index.html" class="nav-logo">NOVHEUR</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" style="color: var(--btn);">Shop</a></li>
+        <li><a href="new-arrivals.html">New Arrivals</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-side">
+        <button class="nav-icon-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3" stroke-linecap="round"/></svg>
+        </button>
+        <button class="nav-icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU DRAWER -->
+  <div class="mobile-menu-overlay"></div>
+  <aside class="mobile-menu">
+    <div class="mobile-menu-top">
+      <span class="nav-logo" style="font-size:1.2rem;">NOVHEUR</span>
+      <button class="mobile-menu-close">
+        <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html" style="color: var(--btn);">Shop</a></li>
+      <li><a href="new-arrivals.html">New Arrivals</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-foot">Worldwide Shipping</div>
+  </aside>
+
+  <!-- PAGE HEADER -->
+  <section class="section-container" style="padding-top: 4rem; padding-bottom: 2rem;">
+    <div class="section-head" style="margin-bottom: 2rem;">
+      <span class="section-eyebrow">Ready-To-Wear</span>
+      <h1 class="section-title">The Collection</h1>
+    </div>
+    
+    <!-- Fine-line Filter Bar -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem; margin-bottom: 3rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);">
+      <div>Showing 8 Products</div>
+      <div style="display: flex; gap: 1.5rem; cursor: pointer;">
+        <span>Filter By <span style="font-weight:600;">+</span></span>
+        <span>Sort <span style="font-weight:600;">↓</span></span>
+      </div>
+    </div>
+
+    <!-- Shop Grid -->
+    <div class="products-grid">
+      <!-- Card 1 -->
+      <div class="product-card">
+        <div class="product-media">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800" alt="Novheur Style">
+          <button class="wishlist-btn"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+          <div class="product-actions">
+            <button class="action-btn">Add To Bag</button>
+            <button class="action-btn quick-view">Quick View</button>
+          </div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">The Linen Vest</h3>
+          <p class="product-price">Ksh 4,500</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="product-card">
+        <div class="product-media">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800" alt="Novheur Style">
+          <button class="wishlist-btn"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+          <div class="product-actions">
+            <button class="action-btn">Add To Bag</button>
+            <button class="action-btn quick-view">Quick View</button>
+          </div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">Bespoke Silk Slip</h3>
+          <p class="product-price">Ksh 6,200</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card">
+        <div class="product-media">
+          <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800" alt="Novheur Style">
+          <button class="wishlist-btn"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+          <div class="product-actions">
+            <button class="action-btn">Add To Bag</button>
+            <button class="action-btn quick-view">Quick View</button>
+          </div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">Editorial Blazer</h3>
+          <p class="product-price">Ksh 8,500</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="product-card">
+        <div class="product-media">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=800" alt="Novheur Style">
+          <button class="wishlist-btn"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+          <div class="product-actions">
+            <button class="action-btn">Add To Bag</button>
+            <button class="action-btn quick-view">Quick View</button>
+          </div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">Monochrome Knit Top</h3>
+          <p class="product-price">Ksh 3,800</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">NOVHEUR</div>
+    <div class="footer-tag">Timeless Modern Luxury</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="new-arrivals.html">New Arrivals</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">WhatsApp</a>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 NOVHEUR. Crafted for the Modern Minimalist.
+    </div>
+  </footer>
+
+  <script>
+    const toggleBtn = document.querySelector('.menu-toggle-btn');
+    const closeBtn = document.querySelector('.mobile-menu-close');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const menu = document.querySelector('.mobile-menu');
+
+    [toggleBtn, closeBtn, overlay].forEach(btn => {
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        overlay.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
 
