@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — NOVHEUR</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-row">
+      <button class="nav-icon-btn menu-toggle-btn" aria-label="Open Menu">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round"/></svg>
+      </button>
+      <a href="index.html" class="nav-logo">NOVHEUR</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="new-arrivals.html">New Arrivals</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" style="color: var(--btn);">Contact</a></li>
+      </ul>
+      <div class="nav-side">
+        <button class="nav-icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU DRAWER -->
+  <div class="mobile-menu-overlay"></div>
+  <aside class="mobile-menu">
+    <div class="mobile-menu-top">
+      <span class="nav-logo" style="font-size:1.2rem;">NOVHEUR</span>
+      <button class="mobile-menu-close">
+        <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="new-arrivals.html">New Arrivals</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" style="color: var(--btn);">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-foot">Worldwide Shipping</div>
+  </aside>
+
+  <!-- CONTACT PORTAL -->
+  <section class="section-container" style="padding-top: 6rem;">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 4rem;" id="contact-grid">
+      
+      <!-- Contact Details -->
+      <div>
+        <span class="section-eyebrow">Assistance</span>
+        <h1 class="section-title" style="margin-bottom: 2rem;">Get In Touch</h1>
+        <p style="color: var(--text-muted); font-size:0.95rem; line-height:1.7; margin-bottom: 2.5rem;">
+          Whether you need styling support, sizing advice, or delivery follow-up, our dedicated customer service team is standing by to help.
+        </p>
+
+        <!-- Shipping Guidelines aligned with Instagram Profile -->
+        <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1.5rem;">
+          <h3 style="font-family:'Cormorant Garamond'; font-size:1.4rem; color:var(--heading); margin-bottom: 0.5rem;">Nairobi Shipping Radius</h3>
+          <p style="font-size:0.88rem; color: var(--text-muted); line-height:1.6;">
+            We provide same-day courier dispatch in Nairobi (Cash-On-Delivery options within Nairobi Radius, excluding CBD). 
+          </p>
+        </div>
+
+        <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1.5rem;">
+          <h3 style="font-family:'Cormorant Garamond'; font-size:1.4rem; color:var(--heading); margin-bottom: 0.5rem;">Worldwide Delivery</h3>
+          <p style="font-size:0.88rem; color: var(--text-muted); line-height:1.6;">
+            We route all international and countrywide shipments with premium trackable carrier services. 
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-family:'Cormorant Garamond'; font-size:1.4rem; color:var(--heading); margin-bottom: 0.5rem;">Boutique Hours</h3>
+          <p style="font-size:0.88rem; color: var(--text-muted); line-height:1.6;">
+            Open Daily — online checkout operational 24/7.
+          </p>
+        </div>
+      </div>
+
+      <!-- Minimalist Form Box -->
+      <div style="background: var(--card); border: 1px solid var(--border-light); padding: 3rem 2.2rem;">
+        <h2 style="font-family:'Cormorant Garamond'; font-size:1.8rem; color:var(--heading); margin-bottom: 2rem;">Inquire</h2>
+        
+        <form style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <label style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:600; color:var(--text-muted);">Name</label>
+            <input type="text" required style="border: none; border-bottom: 1px solid var(--border-light); padding: 0.6rem 0; font-family:'Poppins'; background:transparent; font-size:0.9rem; outline:none;" placeholder="Your Full Name">
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <label style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:600; color:var(--text-muted);">Email</label>
+            <input type="email" required style="border: none; border-bottom: 1px solid var(--border-light); padding: 0.6rem 0; font-family:'Poppins'; background:transparent; font-size:0.9rem; outline:none;" placeholder="yourname@domain.com">
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <label style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:600; color:var(--text-muted);">Message</label>
+            <textarea rows="4" required style="border: none; border-bottom: 1px solid var(--border-light); padding: 0.6rem 0; font-family:'Poppins'; background:transparent; font-size:0.9rem; outline:none; resize:none;" placeholder="How can we assist you?"></textarea>
+          </div>
+
+          <button class="btn" type="submit" style="margin-top: 1rem; width: 100%;">Submit Inquiry</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">NOVHEUR</div>
+    <div class="footer-tag">Timeless Modern Luxury</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="new-arrivals.html">New Arrivals</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">WhatsApp</a>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 NOVHEUR. Crafted for the Modern Minimalist.
+    </div>
+  </footer>
+
+  <script>
+    const toggleBtn = document.querySelector('.menu-toggle-btn');
+    const closeBtn = document.querySelector('.mobile-menu-close');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const menu = document.querySelector('.mobile-menu');
+
+    [toggleBtn, closeBtn, overlay].forEach(btn => {
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        overlay.classList.toggle('open');
+      });
+    });
+
+    if(window.innerWidth > 900) {
+       document.getElementById('contact-grid').style.gridTemplateColumns = '1fr 1fr';
+    }
+  </script>
+</body>
+</html>
