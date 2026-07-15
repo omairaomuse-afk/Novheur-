@@ -1,12 +1,22 @@
-    :root {
-  --bg: #f6f4f3;
-  --btn: #b58e89;
-  --btn-hover: #60362a;
-  --heading: #4d2922;
-  --body: #191b1f;
-  --card: #ffffff;
-  --footer: #3e2f2a;
-  --line: rgba(77,41,34,0.15);
+:root {
+  /* --- Primary Brand & Accents --- */
+  --bg: #f6f4f3;                 /* Main background: clean, warm linen */
+  --btn: #b68f8a;                /* Primary Brand: your main/logo dusty rose */
+  --btn-hover: #60362a;          /* Interaction State: deep terracotta brown */
+  
+  /* --- Typography & Structure --- */
+  --heading: #4d2922;            /* Editorial headers: rich deep espresso */
+  --body: #191b1f;               /* Primary body text: high-contrast dark charcoal */
+  --text-muted: #585352;         /* Secondary text: soft, warm basalt gray */
+  
+  /* --- Containers & Surfaces --- */
+  --card: #ffffff;               /* Clean white surface for cards and popups */
+  --footer: #3e2f2a;             /* Deep, grounding dark chocolate for footer */
+  --bg-dark-accent: #2f2f32;     /* Dark accent surfaces */
+  
+  /* --- Borders & Dividers --- */
+  --border-light: #baadac;       /* Structural borders: soft warm grey */
+  --line: rgba(77, 41, 34, 0.12); /* Delicate divider lines (heading color with low opacity) */
 }
 
 * {
@@ -83,11 +93,12 @@ a {
   border: none;
   border-radius: 2px;
   cursor: pointer;
-  transition: background 0.35s ease, transform 0.15s ease;
+  transition: background 0.35s ease, transform 0.15s ease, box-shadow 0.25s ease;
 }
 
 .btn:hover {
   background: var(--btn-hover);
+  box-shadow: 0 4px 12px rgba(96, 54, 42, 0.15);
 }
 
 .btn:active {
@@ -98,7 +109,7 @@ a {
   display: inline-block;
   background: transparent;
   color: var(--heading);
-  border: 1px solid var(--heading);
+  border: 1px solid var(--border-light);
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 0.82rem;
@@ -107,11 +118,12 @@ a {
   padding: 0.9rem 2.2rem;
   border-radius: 2px;
   cursor: pointer;
-  transition: background 0.35s ease, color 0.35s ease, transform 0.15s ease;
+  transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease, transform 0.15s ease;
 }
 
 .btn-secondary:hover {
   background: var(--heading);
+  border-color: var(--heading);
   color: #fff;
 }
 
@@ -150,7 +162,7 @@ a {
 }
 
 .nav-icon-btn:hover {
-  color: var(--btn-hover);
+  color: var(--btn);
 }
 
 .nav-icon-btn:active {
@@ -198,12 +210,12 @@ a {
   bottom: 0;
   width: 0%;
   height: 1px;
-  background: var(--btn-hover);
+  background: var(--btn);
   transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: var(--heading);
+  color: var(--btn);
 }
 
 .nav-links a:hover::after {
@@ -266,6 +278,7 @@ a {
   transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
   overflow-y: auto;
   box-shadow: 4px 0 24px rgba(0,0,0,0.05);
+  border-right: 1px solid var(--line);
 }
 
 .mobile-menu.open {
@@ -321,8 +334,8 @@ a {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--heading);
-  opacity: 0.6;
+  color: var(--text-muted);
+  opacity: 0.8;
 }
 
 @media (min-width: 900px) {
@@ -331,7 +344,7 @@ a {
   }
 }
 
-/* ================= 1. SHRUNK HERO (40-50vh) ================= */
+/* ================= SHRUNK HERO (40-50vh) ================= */
 .hero-shrunk {
   display: grid;
   grid-template-columns: 1fr;
@@ -368,8 +381,7 @@ a {
 .hero-subtitle-shrunk {
   font-size: 0.92rem;
   line-height: 1.6;
-  color: var(--body);
-  opacity: 0.8;
+  color: var(--text-muted);
   max-width: 45ch;
   margin-bottom: 1.8rem;
 }
@@ -394,7 +406,7 @@ a {
   }
 }
 
-/* ================= 2. CATEGORIES HORIZONTAL ROW ================= */
+/* ================= CATEGORIES HORIZONTAL ROW ================= */
 .categories-container {
   padding: 2.5rem 1.2rem;
   border-bottom: 1px solid var(--line);
@@ -406,11 +418,11 @@ a {
   gap: 0.85rem;
   overflow-x: auto;
   padding-bottom: 0.5rem;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 
 .categories-grid::-webkit-scrollbar {
-  display: none; /* Safari/Chrome */
+  display: none;
 }
 
 .category-tile {
@@ -434,7 +446,7 @@ a {
 .category-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(77,41,34,0.65) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(62,47,42,0.75) 100%); /* Overlay tinted to footer color */
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -466,7 +478,7 @@ a {
   }
 }
 
-/* ================= 3. SHOP / PRODUCT SECTIONS ================= */
+/* ================= SHOP / PRODUCT SECTIONS ================= */
 .section-container {
   max-width: 1280px;
   margin: 0 auto;
@@ -523,6 +535,7 @@ a {
 .product-card {
   background: var(--card);
   border-radius: 2px;
+  border: 1px solid rgba(186, 173, 172, 0.2); /* Softened with border-light */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -543,6 +556,10 @@ a {
   transition: transform 0.7s cubic-bezier(.2,.7,.2,1);
 }
 
+.product-card:hover {
+  box-shadow: 0 10px 24px rgba(77, 41, 34, 0.05);
+}
+
 .product-card:hover .product-media img {
   transform: scale(1.05);
 }
@@ -553,7 +570,7 @@ a {
   top: 0.75rem;
   right: 0.75rem;
   z-index: 5;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   border: none;
   border-radius: 50%;
   width: 32px;
@@ -569,6 +586,7 @@ a {
 
 .wishlist-btn:hover {
   background: var(--card);
+  color: var(--btn-hover);
 }
 
 .wishlist-btn svg {
@@ -581,8 +599,8 @@ a {
 }
 
 .wishlist-btn.active svg {
-  fill: #e06c6c;
-  stroke: #e06c6c;
+  fill: var(--btn);
+  stroke: var(--btn);
 }
 
 /* Product Hover Actions Bar */
@@ -628,7 +646,6 @@ a {
 }
 
 @media (max-width: 768px) {
-  /* Simplified and static mobile interactions */
   .product-actions {
     position: relative;
     bottom: 0;
@@ -667,7 +684,7 @@ a {
   margin-top: 3.5rem;
 }
 
-/* ================= 4. LIFESTYLE BANNER ================= */
+/* ================= LIFESTYLE BANNER ================= */
 .lifestyle-banner {
   position: relative;
   height: 42vh;
@@ -692,7 +709,7 @@ a {
 .lifestyle-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(30, 17, 14, 0.45);
+  background: rgba(62, 47, 42, 0.5); /* Overlay color matched perfectly to var(--footer) */
   z-index: 2;
 }
 
@@ -731,7 +748,7 @@ a {
   }
 }
 
-/* ================= 5. TRENDING CATEGORIES ================= */
+/* ================= TRENDING GRID ================= */
 .trending-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -770,7 +787,7 @@ a {
 .trending-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(48, 26, 22, 0.25);
+  background: rgba(96, 54, 42, 0.25); /* Tinted with your brand's deep brown (btn-hover) */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -778,7 +795,7 @@ a {
 }
 
 .trending-card:hover .trending-overlay {
-  background: rgba(48, 26, 22, 0.45);
+  background: rgba(96, 54, 42, 0.45);
 }
 
 .trending-title {
@@ -790,7 +807,7 @@ a {
   text-transform: uppercase;
 }
 
-/* ================= 7. INSTAGRAM FEED ================= */
+/* ================= INSTAGRAM FEED ================= */
 .instagram-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -821,7 +838,7 @@ a {
   opacity: 0.85;
 }
 
-/* ================= 8. NEWSLETTER ================= */
+/* ================= NEWSLETTER ================= */
 .newsletter-section {
   background: var(--card);
   border-top: 1px solid var(--line);
@@ -844,8 +861,7 @@ a {
 
 .newsletter-desc {
   font-size: 0.9rem;
-  color: var(--body);
-  opacity: 0.7;
+  color: var(--text-muted);
   margin-bottom: 2.2rem;
 }
 
@@ -856,7 +872,7 @@ a {
 }
 
 .newsletter-input {
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-light);
   background: var(--bg);
   padding: 1.05rem 1.2rem;
   font-family: 'Poppins', sans-serif;
@@ -947,11 +963,12 @@ footer {
 .footer-tag {
   text-align: center;
   font-size: 0.8rem;
-  opacity: 0.65;
+  opacity: 0.75;
   margin-bottom: 2.6rem;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   letter-spacing: 0.03em;
+  color: var(--border-light); /* Lighter accent color for readability on dark footer */
 }
 
 .footer-links {
@@ -963,12 +980,17 @@ footer {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 2.6rem;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .footer-links a {
   position: relative;
   padding-bottom: 3px;
+  transition: color 0.25s ease;
+}
+
+.footer-links a:hover {
+  color: var(--btn);
 }
 
 .footer-links a::after {
@@ -978,7 +1000,7 @@ footer {
   bottom: 0;
   width: 0%;
   height: 1px;
-  background: #f6f4f3;
+  background: var(--btn);
   transition: width 0.3s ease;
 }
 
@@ -995,17 +1017,18 @@ footer {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 2.2rem;
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 .footer-social a {
   position: relative;
   padding-bottom: 3px;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, color 0.25s ease;
 }
 
 .footer-social a:hover {
   opacity: 1;
+  color: var(--btn);
 }
 
 .footer-social a::after {
@@ -1015,7 +1038,7 @@ footer {
   bottom: 0;
   width: 0%;
   height: 1px;
-  background: #f6f4f3;
+  background: var(--btn);
   transition: width 0.3s ease;
 }
 
@@ -1031,22 +1054,23 @@ footer {
   font-size: 0.68rem;
   letter-spacing: 0.04em;
   margin-bottom: 1.8rem;
-  opacity: 0.55;
+  opacity: 0.6;
 }
 
 .footer-policy-links a {
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, color 0.25s ease;
 }
 
 .footer-policy-links a:hover {
-  opacity: 0.85;
+  opacity: 0.9;
+  color: var(--btn);
 }
 
 .footer-bottom {
   text-align: center;
   font-size: 0.68rem;
-  opacity: 0.45;
+  opacity: 0.5;
   letter-spacing: 0.04em;
-  border-top: 1px solid rgba(246,244,243,0.15);
+  border-top: 1px solid rgba(186, 173, 172, 0.15); /* Tinted divider */
   padding-top: 1.6rem;
 }
