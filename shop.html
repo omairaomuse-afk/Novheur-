@@ -6,6 +6,186 @@
   <title>Shop All — NOVHEUR</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Specific Brand Overrides for Oh Polly-style Layout */
+    :root {
+      --font-serif: 'Cormorant Garamond', serif;
+      --font-sans: 'Poppins', sans-serif;
+      --text-main: #1a1a1a;
+      --text-muted: #707070;
+      --border-light: #eaeaea;
+    }
+
+    /* 2-Column Mobile Grid, 4-Column Desktop Grid */
+    .shop-products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem 1rem;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .shop-products-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem 1.5rem;
+        padding: 0;
+      }
+    }
+
+    /* Product Card */
+    .shop-product-card {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background: #fff;
+    }
+
+    .shop-product-media {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background-color: #f7f7f7;
+      margin-bottom: 0.8rem;
+    }
+
+    .shop-product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .shop-product-card:hover .shop-product-media img {
+      transform: scale(1.03);
+    }
+
+    /* Wishlist Heart Overlay */
+    .wishlist-heart {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 2;
+      padding: 5px;
+    }
+
+    .wishlist-heart svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: #1a1a1a;
+      stroke-width: 1.5;
+      transition: fill 0.2s, stroke 0.2s;
+    }
+
+    .wishlist-heart:hover svg {
+      fill: #1a1a1a;
+    }
+
+    /* Info Area */
+    .shop-product-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Brand Row (Name + Quick Add Bag) */
+    .shop-info-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.2rem;
+    }
+
+    .shop-brand-name {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-main);
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .quick-bag-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0 2px;
+      color: var(--text-main);
+    }
+
+    .quick-bag-btn svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    /* Description (Small and Muted) */
+    .shop-description {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin: 0 0 0.5rem 0;
+      font-weight: 300;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Price & Swatches Row */
+    .shop-info-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .shop-price {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    /* Swatches */
+    .swatches-container {
+      display: flex;
+      gap: 5px;
+    }
+
+    .swatch-circle {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .swatch-circle:hover {
+      transform: scale(1.15);
+    }
+
+    /* Size Indicator (Clean, discrete size pills under the card) */
+    .sizes-indicator {
+      display: flex;
+      gap: 6px;
+      margin-top: 0.5rem;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      letter-spacing: 0.05em;
+    }
+
+    .sizes-indicator span {
+      border: 1px solid var(--border-light);
+      padding: 1px 5px;
+      border-radius: 2px;
+    }
+  </style>
 </head>
 <body>
 
@@ -53,87 +233,143 @@
     <div class="mobile-menu-foot">Worldwide Shipping</div>
   </aside>
 
-  <!-- PAGE HEADER -->
-  <section class="section-container" style="padding-top: 4rem; padding-bottom: 2rem;">
+  <!-- SHOP MAIN CONTAINER -->
+  <section class="section-container" style="padding-top: 4rem; padding-bottom: 5rem;">
     <div class="section-head" style="margin-bottom: 2rem;">
       <span class="section-eyebrow">Ready-To-Wear</span>
       <h1 class="section-title">The Collection</h1>
     </div>
     
-    <!-- Fine-line Filter Bar -->
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem; margin-bottom: 3rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);">
-      <div>Showing 8 Products</div>
-      <div style="display: flex; gap: 1.5rem; cursor: pointer;">
-        <span>Filter By <span style="font-weight:600;">+</span></span>
-        <span>Sort <span style="font-weight:600;">↓</span></span>
+    <!-- Filter & Sort Bar -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem; margin-bottom: 2.5rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); padding-left: 1rem; padding-right: 1rem;">
+      <div>Filter + Sort</div>
+      <div style="display: flex; gap: 0.8rem; font-weight: 500;">
+        <span>1</span> <span style="opacity: 0.4;">2</span> <span style="opacity: 0.4;">3</span>
       </div>
     </div>
 
-    <!-- Shop Grid -->
-    <div class="products-grid">
-      <!-- Card 1 -->
-      <div class="product-card">
-        <div class="product-media">
-          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800" alt="Novheur Style">
-          <button class="wishlist-btn"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-          <div class="product-actions">
-            <button class="action-btn">Add To Bag</button>
-            <button class="action-btn quick-view">Quick View</button>
-          </div>
+    <!-- PRODUCTS GRID -->
+    <div class="shop-products-grid">
+      
+      <!-- Product Card 1 (Simulated "Cressida" from your Oh Polly ref) -->
+      <div class="shop-product-card">
+        <div class="shop-product-media">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800" alt="Cressida Dress">
+          <button class="wishlist-heart" aria-label="Add to wishlist">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </button>
         </div>
-        <div class="product-body">
-          <h3 class="product-name">The Linen Vest</h3>
-          <p class="product-price">Ksh 4,500</p>
+        <div class="shop-product-info">
+          <div class="shop-info-header">
+            <h3 class="shop-brand-name">Cressida</h3>
+            <button class="quick-bag-btn" aria-label="Quick Add to Bag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <p class="shop-description">Bow-Detail Pleated A-Line Mini Dress in Black</p>
+          <div class="shop-info-footer">
+            <span class="shop-price">Ksh 6,500</span>
+            <div class="swatches-container">
+              <span class="swatch-circle" style="background-color: #000000;" title="Black"></span>
+              <span class="swatch-circle" style="background-color: #8B0000;" title="Deep Red"></span>
+              <span class="swatch-circle" style="background-color: #FFC0CB;" title="Pale Pink"></span>
+            </div>
+          </div>
+          <div class="sizes-indicator">
+            <span>XS</span> <span>S</span> <span>M</span> <span>L</span>
+          </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="product-card">
-        <div class="product-media">
-          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800" alt="Novheur Style">
-          <button class="wishlist-btn"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-          <div class="product-actions">
-            <button class="action-btn">Add To Bag</button>
-            <button class="action-btn quick-view">Quick View</button>
-          </div>
+      <!-- Product Card 2 -->
+      <div class="shop-product-card">
+        <div class="shop-product-media">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800" alt="Intimates Cover">
+          <button class="wishlist-heart" aria-label="Add to wishlist">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </button>
         </div>
-        <div class="product-body">
-          <h3 class="product-name">Bespoke Silk Slip</h3>
-          <p class="product-price">Ksh 6,200</p>
+        <div class="shop-product-info">
+          <div class="shop-info-header">
+            <h3 class="shop-brand-name">Intimates</h3>
+            <button class="quick-bag-btn" aria-label="Quick Add to Bag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <p class="shop-description">Reusable Silicone Nipple Covers in Warm Peach</p>
+          <div class="shop-info-footer">
+            <span class="shop-price">Ksh 1,800</span>
+            <div class="swatches-container">
+              <span class="swatch-circle" style="background-color: #E6C2A0;" title="Peach"></span>
+              <span class="swatch-circle" style="background-color: #C68B59;" title="Tan"></span>
+              <span class="swatch-circle" style="background-color: #8D5524;" title="Cocoa"></span>
+            </div>
+          </div>
+          <div class="sizes-indicator">
+            <span>ONESIZE</span>
+          </div>
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="product-card">
-        <div class="product-media">
-          <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800" alt="Novheur Style">
-          <button class="wishlist-btn"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-          <div class="product-actions">
-            <button class="action-btn">Add To Bag</button>
-            <button class="action-btn quick-view">Quick View</button>
-          </div>
+      <!-- Product Card 3 -->
+      <div class="shop-product-card">
+        <div class="shop-product-media">
+          <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800" alt="Lyra Drape">
+          <button class="wishlist-heart" aria-label="Add to wishlist">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </button>
         </div>
-        <div class="product-body">
-          <h3 class="product-name">Editorial Blazer</h3>
-          <p class="product-price">Ksh 8,500</p>
+        <div class="shop-product-info">
+          <div class="shop-info-header">
+            <h3 class="shop-brand-name">Lyra Luxe</h3>
+            <button class="quick-bag-btn" aria-label="Quick Add to Bag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <p class="shop-description">Asymmetrical Satin Draped Maxi Dress in Pearl</p>
+          <div class="shop-info-footer">
+            <span class="shop-price">Ksh 7,200</span>
+            <div class="swatches-container">
+              <span class="swatch-circle" style="background-color: #FDFBF7;" title="Pearl"></span>
+              <span class="swatch-circle" style="background-color: #EAE0D5;" title="Oatmeal"></span>
+            </div>
+          </div>
+          <div class="sizes-indicator">
+            <span>S</span> <span>M</span> <span>L</span>
+          </div>
         </div>
       </div>
 
-      <!-- Card 4 -->
-      <div class="product-card">
-        <div class="product-media">
-          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=800" alt="Novheur Style">
-          <button class="wishlist-btn"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-          <div class="product-actions">
-            <button class="action-btn">Add To Bag</button>
-            <button class="action-btn quick-view">Quick View</button>
+      <!-- Product Card 4 -->
+      <div class="shop-product-card">
+        <div class="shop-product-media">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=800" alt="Elowen Top">
+          <button class="wishlist-heart" aria-label="Add to wishlist">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </button>
+        </div>
+        <div class="shop-product-info">
+          <div class="shop-info-header">
+            <h3 class="shop-brand-name">Elowen</h3>
+            <button class="quick-bag-btn" aria-label="Quick Add to Bag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <p class="shop-description">Contour Knit Halter Neck Top in Chocolate Espresso</p>
+          <div class="shop-info-footer">
+            <span class="shop-price">Ksh 3,900</span>
+            <div class="swatches-container">
+              <span class="swatch-circle" style="background-color: #3D2314;" title="Espresso"></span>
+              <span class="swatch-circle" style="background-color: #F5F5DC;" title="Beige"></span>
+              <span class="swatch-circle" style="background-color: #000000;" title="Black"></span>
+            </div>
+          </div>
+          <div class="sizes-indicator">
+            <span>S</span> <span>M</span> <span>L</span> <span>XL</span>
           </div>
         </div>
-        <div class="product-body">
-          <h3 class="product-name">Monochrome Knit Top</h3>
-          <p class="product-price">Ksh 3,800</p>
-        </div>
       </div>
+
     </div>
   </section>
 
@@ -159,6 +395,7 @@
   </footer>
 
   <script>
+    // Navigation Drawer Logic
     const toggleBtn = document.querySelector('.menu-toggle-btn');
     const closeBtn = document.querySelector('.mobile-menu-close');
     const overlay = document.querySelector('.mobile-menu-overlay');
@@ -173,4 +410,3 @@
   </script>
 </body>
 </html>
-
