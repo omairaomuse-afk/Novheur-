@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | NOVHEUR</title>
+  <!-- Font Imports -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Link your existing style sheet for variables -->
+  <link rel="stylesheet" href="css/style.css?v=1.1">
+  
+  <style>
+    /* Specific Checkout Layout Styles */
+    .checkout-body {
+      background: var(--bg);
+      font-family: 'Poppins', sans-serif;
+      color: var(--body);
+    }
+    
+    .checkout-header {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-light);
+      background: var(--card);
+    }
+    
+    .checkout-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--heading);
+      text-decoration: none;
+    }
+    
+    .checkout-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2rem 1.5rem 5rem;
+    }
+    
+    @media (min-width: 900px) {
+      .checkout-container {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 4rem;
+        padding: 4rem 3rem 8rem;
+      }
+    }
+    
+    .checkout-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--heading);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 0.5rem;
+    }
+    
+    /* Form Styles */
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    @media (min-width: 600px) {
+      .form-group-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .form-group {
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-group label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    
+    .form-control {
+      border: 1px solid var(--border-light);
+      background: var(--card);
+      padding: 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      color: var(--body);
+      border-radius: 1px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-control:focus {
+      border-color: var(--btn);
+    }
+    
+    /* Payment Option Selectors */
+    .payment-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    
+    .payment-option {
+      border: 1px solid var(--border-light);
+      background: var(--card);
+      padding: 1.2rem;
+      border-radius: 1px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .payment-option:hover {
+      border-color: var(--btn);
+    }
+    
+    .payment-option input[type="radio"] {
+      accent-color: var(--btn);
+      width: 18px;
+      height: 18px;
+    }
+    
+    .payment-text h4 {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--heading);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .payment-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+    
+    /* Order Summary Column */
+    .order-summary-card {
+      background: var(--card);
+      border: 1px solid var(--border-light);
+      padding: 2rem;
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+    }
+    
+    .summary-item-row {
+      display: flex;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    
+    .summary-item-img {
+      width: 60px;
+      aspect-ratio: 3/4;
+      background: #e9e4e1;
+      overflow: hidden;
+    }
+    
+    .summary-item-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .summary-item-details {
+      flex: 1;
+    }
+    
+    .summary-item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--heading);
+    }
+    
+    .summary-item-meta {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    
+    .summary-item-price {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    .summary-pricing-totals {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    
+    .pricing-row.total {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--heading);
+      font-weight: 500;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body class="checkout-body">
+
+  <!-- Minimal Logo Header -->
+  <header class="checkout-header">
+    <a href="index.html" class="checkout-logo">NOVHEUR</a>
+  </header>
+
+  <div class="checkout-container">
+    
+    <!-- Left Column: Forms -->
+    <div>
+      <form action="#" id="checkoutForm">
+        
+        <!-- Contact & Shipping -->
+        <div style="margin-bottom: 3rem;">
+          <h2 class="checkout-section-title">Delivery Information</h2>
+          
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" class="form-control" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number (M-Pesa Number)</label>
+            <input type="tel" id="phone" placeholder="e.g. 0712345678" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="address">Delivery Address / Apartment / Office Room</label>
+            <input type="text" id="address" placeholder="Apartment, suite, unit, building, etc." class="form-control" required>
+          </div>
+          
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="city">City / Town</label>
+              <select id="city" class="form-control" required>
+                <option value="Nairobi">Nairobi</option>
+                <option value="Mombasa">Mombasa</option>
+                <option value="Kisumu">Kisumu</option>
+                <option value="Nakuru">Nakuru</option>
+                <option value="Eldoret">Eldoret</option>
+                <option value="Other">Other (Upcountry Courier)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="shippingMethod">Shipping Method</label>
+              <select id="shippingMethod" class="form-control">
+                <option value="Nairobi Express">Nairobi Same-Day Delivery — Ksh 350</option>
+                <option value="Upcountry Courier">Upcountry G4S/Wells Fargo — Ksh 500</option>
+                <option value="Store Pickup">Nairobi Showroom Pickup — Free</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Payment Options -->
+        <div>
+          <h2 class="checkout-section-title">Payment Method</h2>
+          
+          <div class="payment-methods">
+            <label class="payment-option">
+              <input type="radio" name="payment" value="mpesa" checked>
+              <div class="payment-text">
+                <h4>M-Pesa Express</h4>
+                <p>Receive a prompt directly to your phone to input your PIN.</p>
+              </div>
+            </label>
+            
+            <label class="payment-option">
+              <input type="radio" name="payment" value="cod">
+              <div class="payment-text">
+                <h4>Cash on Delivery</h4>
+                <p>Available for Nairobi deliveries only.</p>
+              </div>
+            </label>
+            
+            <label class="payment-option">
+              <input type="radio" name="payment" value="card">
+              <div class="payment-text">
+                <h4>Credit/Debit Card</h4>
+                <p>Secure global payments processed via Flutterwave.</p>
+              </div>
+            </label>
+          </div>
+        </div>
+        
+      </form>
+    </div>
+    
+    <!-- Right Column: Sticky Order Summary -->
+    <div>
+      <div class="order-summary-card">
+        <h3 class="checkout-section-title" style="border: none; margin-bottom: 1rem;">Order Summary</h3>
+        
+        <!-- Summary Items container -->
+        <div class="summary-items">
+          <div class="summary-item-row">
+            <div class="summary-item-img">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=200&auto=format&fit=crop" alt="Linen Knit Vest">
+            </div>
+            <div class="summary-item-details">
+              <h4 class="summary-item-name">Linen Knit Vest</h4>
+              <p class="summary-item-meta">Size: S / Warm Sand</p>
+            </div>
+            <div class="summary-item-price">Ksh 6,500</div>
+          </div>
+        </div>
+        
+        <!-- Summary Math -->
+        <div class="summary-pricing-totals">
+          <div class="pricing-row">
+            <span>Subtotal</span>
+            <span>Ksh 6,500</span>
+          </div>
+          <div class="pricing-row">
+            <span>Shipping</span>
+            <span id="summaryShippingPrice">Ksh 350</span>
+          </div>
+          <div class="pricing-row total">
+            <span>Total</span>
+            <span id="summaryTotalPrice">Ksh 6,850</span>
+          </div>
+        </div>
+        
+        <button type="submit" form="checkoutForm" class="btn checkout-btn">Complete Purchase</button>
+      </div>
+    </div>
+    
+  </div>
+
+</body>
+</html>
+
